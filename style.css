@@ -5,206 +5,282 @@
 }
 
 :root {
-  --text-color: white;
-  --bg-url: url(./assets/unimed.png);
-  --stroke-color: rgba(255, 255, 255, 0.5);
-  --surface-color: rgba(255, 255, 255, 0.1);
-  --surface-color-hover: rgba(255, 255, 255, 0.05);
-  --highlight-color: rgba(255, 255, 255, 0.2);
-  --switch-bg-url: url(/assets/unimed.png);
-}
-
-.light {
-  --text-color: black;
-  --bg-url: url(./assets/unimed.png);
-  --stroke-color: rgba(0, 0, 0, 0.5);
-  --surface-color: rgba(0, 0, 0, 0.05);
-  --surface-color-hover: rgba(0, 0, 0, 0.02);
-  --highlight-color: rgba(0, 0, 0, 0.1);
-  --switch-bg-url: url(/assets/unimed.png);
+  --primary-color: #00a651;
+  --secondary-color: #0056b3;
+  --accent-color: #ff6b35;
+  --dark-color: #1a1a1a;
+  --light-gray: #f8f9fa;
+  --medium-gray: #6c757d;
+  --border-radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 8px 32px rgba(0, 166, 81, 0.2);
 }
 
 body {
-  /*
-  background-image: url(./assets/assets/bg-mobile.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-  */
-
-  /* background: color image repeat position/size */
-  background: var(--bg-url) no-repeat top center/cover;
-  height: 100vh;
-}
-
-body * {
   font-family: "Inter", sans-serif;
-  color: var(--text-color);
+  background-image: url("./assets/unimed.png"); ;
+  min-height: 100vh;
+  color: var(--dark-color);
+  overflow-x: hidden;
 }
 
-#container {
-  width: 100%;
-  max-width: 588px;
-  margin: 56px auto 0px;
-  padding: 0 24px;
-}
 
-/* profile */
-#profile {
-  text-align: center;
-  padding: 24px;
-}
 
-#profile img {
-  width: 112px;
-}
-
-#profile p {
-  font-weight: bold;
-  line-height: 24px;
-  margin-top: 8px;
-}
-
-/* switch */
-
-#switch {
-  position: relative;
-  width: 64px;
-
-  margin: 4px auto;
-}
-#switch button {
-  width: 32px;
-  height: 32px;
-  background: white var(--switch-bg-url) no-repeat center;
-  border: 0;
-  border-radius: 50%;
-
-  position: absolute;
-  top: 50%;
-  left: 0;
-  z-index: 1;
-  transform: translateY(-50%);
-
-  animation: slide-back 0.2s forwards;
-}
-
-.light #switch button {
-  animation: slide-in 0.2s forwards;
-}
-
-#switch button:hover {
-  outline: 8px solid var(--highlight-color);
-}
-
-#switch span {
-  display: block;
-  width: 64px;
-  height: 24px;
-  background: var(--surface-color);
-  border: 1px solid var(--stroke-color);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 9999px;
-}
-
-/* Links */
-ul {
-  list-style: none;
-
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-
-  padding: 24px 0;
-}
-
-ul li a {
-  display: flex;
   align-items: center;
   justify-content: center;
-
-  padding: 16px 24px;
-
-  background: var(--surface-color);
-  border: 1px solid var(--stroke-color);
-  border-radius: 8px;
-
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-
-  text-decoration: none;
-  font-weight: bold;
-
-  transition: background 0.5s;
 }
 
-/* pseudo-selector */
-ul li a:hover {
-  background: var(--surface-color-hover);
-  border: 1.5px solid var(--text-color);
+.main-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  width: 100%;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 0.8s ease forwards;
 }
 
-/* social links */
-#social-links {
-  display: flex;
-  justify-content: center;
-
-  padding: 24px 0;
-
-  font-size: 24px;
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-#social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-
-  transition: background 0.2s;
-  border-radius: 50%;
-}
-
-#social-links a:hover {
-  background: var(--highlight-color);
-}
-
-footer {
-  padding: 24px 0;
+.profile {
   text-align: center;
- 
-  font-size: 14px;
+  margin-bottom: 3rem;
 }
 
-footer a {
+.logo-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  padding: 10px;
+  background: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 166, 81, 0.2);
+}
+
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--dark-gray);
+  font-weight: 400;
+}
+
+.links-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.link-card {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
   text-decoration: none;
-}
-/* media queries*/
-@media (min-width: 700px) {
-  :root {
-    --bg-url: url(/assets/unimed.png);
-  }
-
-  .light {
-    --bg-url: url(./assets/bg-desktop-ligth.jpg);
-  }
+  color: var(--dark-color);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
-/* animation */
-@keyframes slide-in {
-  from {
-    left: 0;
+.link-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 166, 81, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.link-card:hover::before {
+  left: 100%;
+}
+
+.link-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--hover-shadow);
+  border-color: var(--primary-color);
+}
+
+.link-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.link-card:hover .link-icon {
+  transform: scale(1.1) ;
+}
+
+.link-content {
+  flex: 1;
+}
+
+.link-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--dark-color);
+}
+
+.link-desc {
+  font-size: 0.9rem;
+  color: var(--medium-gray);
+  line-height: 1.4;
+}
+
+.download-badge {
+  background: var(--accent-color);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.external-badge {
+  background: var(--secondary-color);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.footer {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--medium-gray);
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--secondary-color);
+}
+
+.status-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 12px;
+  height: 12px;
+  background: #4caf50;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
   }
-  to {
-    left: 50%;
+  70% {
+    box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
   }
 }
 
-@keyframes slide-back {
-  from {
-    left: 50%;
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
   }
-  to {
-    left: 0;
+
+  .main-card {
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .link-card {
+    padding: 1rem;
+  }
+
+  .links-grid {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-card {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .logo {
+    width: 100px;
+    height: 100px;
   }
 }

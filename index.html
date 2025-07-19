@@ -1,64 +1,147 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./assets/avatar2.png" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suporte Técnico | Unimed Curitiba</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="container">
-      <div id="profile">
-        <img src="./assets/avatar2.png" alt="Logo Unimed Curitiba" />
-        <p>Suporte Técnico | Unimed Curitiba</p>
-      </div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-card">
+            <div class="status-indicator"></div>
+            
+            <div class="profile">
+                <div class="logo-container">
+                    <img src="./assets/avatar2.png" alt="Logo Unimed Curitiba" class="logo">
+                </div>
+                <h1 class="title">Suporte Técnico</h1>
+                <p class="subtitle">Unimed Curitiba - Central de Downloads</p>
+            </div>
 
-      <ul>
-        <li>
-          <a
-            href="./docs/Leitor Biometrico FS-80.zip"
-            target="_blank"
-            >Drive Leitora Biométrica | FS-80 "preta"</a
-          >
-        </li>
-        <li>
-          <a
-            href="./docs/Leitor Biometrico 4000B.zip"
-            target="_blank"
-            >Drive Leitora Biométrica | 4000B "prata"</a
-          >
-        </li>
-        <li>
-          <a
-            href="./docs/Firefox47.exe"
-            target="_blank"
-            >Download Firefox</a
-          >
-        </li>
-        <li>
-          <a
-            href="./docs/jre-8u421-windows-i586.exe"
-            target="_blank"
-            >Download Java 32Bits</a
-          >
-        </li>
-        <li>
-          <a href="https://autorizador.unimedcuritiba.com.br/"
-            >Autorizador Unimed</a
-          >
-        </li>
-      </ul>
+            <div class="links-grid">
+                <a href="./docs/Leitor Biometrico FS-80.zip" target="_blank" class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <div class="link-content">
+                        <div class="link-title">Driver Leitora Biométrica FS-80</div>
+                        <div class="link-desc">Driver para leitora biométrica modelo FS-80 (preta)</div>
+                    </div>
+                    <span class="download-badge">ZIP</span>
+                </a>
 
-      <footer>© 2024 <a href="https://github.com/andreflara">andrefernando</a></footer>
+                <a href="./docs/Leitor Biometrico 4000B.zip" target="_blank" class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <div class="link-content">
+                        <div class="link-title">Driver Leitora Biométrica 4000B</div>
+                        <div class="link-desc">Driver para leitora biométrica modelo 4000B (prata)</div>
+                    </div>
+                    <span class="download-badge">ZIP</span>
+                </a>
+
+                <a href="./docs/Firefox47.exe" target="_blank" class="link-card">
+                    <div class="link-icon">
+                        <i class="fab fa-firefox-browser"></i>
+                    </div>
+                    <div class="link-content">
+                        <div class="link-title">Mozilla Firefox 47</div>
+                        <div class="link-desc">Navegador Firefox versão compatível com sistemas legados</div>
+                    </div>
+                    <span class="download-badge">EXE</span>
+                </a>
+
+                <a href="./docs/jre-8u421-windows-i586.exe" target="_blank" class="link-card">
+                    <div class="link-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <div class="link-content">
+                        <div class="link-title">Java Runtime Environment</div>
+                        <div class="link-desc">JRE 8 Update 421 para Windows 32-bits</div>
+                    </div>
+                    <span class="download-badge">EXE</span>
+                </a>
+
+                <a href="https://autorizador.unimedcuritiba.com.br/" target="_blank" class="link-card">
+                    <div class="link-icon">
+                        <i class="fa-regular fa-window-restore"></i>
+                    </div>
+                    <div class="link-content">
+                        <div class="link-title">Autorizador Unimed</div>
+                        <div class="link-desc">Sistema de autorização de procedimentos médicos</div>
+                    </div>
+                    <span class="external-badge">WEB</span>
+                </a>
+            </div>
+
+            <div class="footer">
+                <p>© 2025 <a href="https://github.com/andreflara" target="_blank">andrefernando</a> | Suporte Técnico Unimed Curitiba</p>
+            </div>
+        </div>
     </div>
-    <script src="./script.js"></script>
-  </body>
+
+    <script>
+        // Adiciona animação de entrada aos cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.link-card');
+            
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100 + 300);
+            });
+
+            // Adiciona efeito de clique
+            cards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Cria efeito ripple
+                    const ripple = document.createElement('div');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(0, 166, 81, 0.3)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.style.width = size + 'px';
+                    ripple.style.height = size + 'px';
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+
+        // CSS para animação ripple
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
 </html>
